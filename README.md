@@ -40,7 +40,6 @@ We actually use the **TextRank** algorithm. The core concept of **TextRank** alg
 
 The first step is to add the determined keyword as a vertex to the graph according to the lexical unit, and then connect the vertex according to the **relationship** between the two words. The importance of the vertex determines the importance of the edge connected with the vertex, and then perform iterative calculation. Finally, rank the vertices according to the vertex score to obtain the ranking of keywords. Below is the keyword obtained by TextRank in the same article:  
 ![算法3]()  
-![算法4]()  
 ###### <u>In this project, 26 tweets asking for Jinshan were used, and the time range was September to December</u>
 
 However, there is a problem with the above two algorithms that they cannot query **synonyms**. Therefore, we have introduced **cnsyn** to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
