@@ -33,12 +33,14 @@ Keyword extraction algorithm is divided into **supervised algorithm** and **unsu
 
 The first keyword extraction algorithm is **TF-IDF**. Through **word frequency** and **inverse document frequency**, we can infer which words may be the key words of the article. Below is our test results of this article:  
 ![算法1]()  
+![算法2]()  
 However, the corpus used in the inverse document frequency of **TF-IDF** is not fully applicable to this project, and **Arabic numerals** may appear, so we do not use this algorithm.
 
 We actually use the **TextRank** algorithm. The core concept of **TextRank** algorithm is "**voting**" or "**recommending**", mainly including the following steps.
 
 The first step is to add the determined keyword as a vertex to the graph according to the lexical unit, and then connect the vertex according to the **relationship** between the two words. The importance of the vertex determines the importance of the edge connected with the vertex, and then perform iterative calculation. Finally, rank the vertices according to the vertex score to obtain the ranking of keywords. Below is the keyword obtained by TextRank in the same article:  
-![算法2]()  
+![算法3]()  
+![算法4]()  
 ###### <u>In this project, 26 tweets asking for Jinshan were used, and the time range was September to December</u>
 
 However, there is a problem with the above two algorithms that they cannot query **synonyms**. Therefore, we have introduced **cnsyn** to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
