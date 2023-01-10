@@ -8,7 +8,7 @@
 ![政策宣传]()  
 Providing benefits such as free fruit and medicine:  
 ![福利放送]()  
-At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:
+At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:  
 ![你呼我应]()   
 which provides people with convenience.  
 
