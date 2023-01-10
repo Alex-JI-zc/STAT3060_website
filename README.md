@@ -64,18 +64,14 @@ Finally, we have solved the pain points mentioned at the beginning and realized 
 -------------
 Next, I will explain the analysis of the algorithm and the future directions of improvement.
 
-First of all, compare the keywords extracted by manual and algorithm. The left figure shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps, while the right figure shows the keywords retrieved by the algorithm and ranked by the relevance. We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of 6 keywords that are in line with each other, which  is indicated by the red bar chart on the right. In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
+First of all, compare the keywords extracted by manual and algorithm. The figure below shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps:  
+![分析1]()  
+while this figure below shows the keywords retrieved by the algorithm and ranked by the relevance:  
+![分析2]()  
+We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of 6 keywords that are in line with each other, which  is indicated by the red bar chart on the right. In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
 
 At the same time, we found that the highest keyword accuracy obtained by the TextRank algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm. Moreover, since most of the valid keywords are concentrated in the first 10, we can increase the precision by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
 
 In terms of the efficiency of the algorithm, we found that the time for each keyword search was more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to cross-reference the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms. Furthermore, the search for synonyms requires access to multiple web resources, so the overall efficiency is much lower.
 
 For this, our proposed solution is to build a local thesaurus and put in advance the synonyms of all article keywords, as well as the synonyms.
-
-
-
-
-
-
-
-
