@@ -9,7 +9,7 @@
 Providing benefits such as free fruit and medicine:  
 ![福利放送](images/福利放送.png)  
 At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:  
-![你呼我应](images/你呼我应.png)   
+![你呼我应](images/你呼我应.jpeg)   
 which provides people with convenience.  
 
 However, after our team actually used the official account, we found that there are two functions worth improving inside the official account. First, the information articles in the "convenience service" mini program lack search function, and can only be sorted by time, as shown in the figure:  
@@ -17,9 +17,9 @@ However, after our team actually used the official account, we found that there 
 It is not easy for people to look up important articles in the past. At the same time, the problem may become more prominent in the future as the number of articles increases.
 
 Secondly, the function of "follow automatic reply" provided by the chat interface of the official account is not perfect. At present, users can only get corresponding tweets by inputting the two keywords of community and nucleic acid:  
-![痛点2.1](images/痛点2.1.png)  
+![痛点2.1](images/痛点2.1.jpeg)  
 while other keywords can only get fixed replies as shown in the figure.  
-![痛点2.2](images/痛点2.2.png)  
+![痛点2.2](images/痛点2.2.jpeg)  
 It was found that many of the keywords people entered in the chat box did not get the desired tweets:  
 ![痛点2.3](images/痛点2.3.png)  
 which also shows that the user support for this feature is actually very high.
