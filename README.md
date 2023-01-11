@@ -31,16 +31,16 @@ Based on this, our team determined our project objectives. On the one hand, it i
 ----------------------
 Keyword extraction algorithm is divided into **supervised algorithm** and **unsupervised algorithm**. At present, **unsupervised algorithm** is widely used, which consumes less resources and does not require manual annotation of data sets. It is also the algorithm used in our project.
 
-The first keyword extraction algorithm is **TF-IDF**. Through **word frequency** and **inverse document frequency**, we can infer which words may be the key words of the article. Below is our test results of this article:  
+The first keyword extraction algorithm is [**TF-IDF**](https://www.researchgate.net/publication/228818851_Using_TF-IDF_to_determine_word_relevance_in_document_queries). Through **word frequency** and **inverse document frequency**, we can infer which words may be the key words of the article. Below is our test results of this article:  
 <div align=center><img src="./images/算法1.png"></div>   
 <div align=center><img src="./images/算法2.png"></div>   
-However, the corpus used in the inverse document frequency of **TF-IDF** is not fully applicable to this project, and **Arabic numerals** may appear, so we do not use this algorithm.
+However, the corpus used in the inverse document frequency of [**TF-IDF**](https://www.researchgate.net/publication/228818851_Using_TF-IDF_to_determine_word_relevance_in_document_queries) is not fully applicable to this project, and **Arabic numerals** may appear, so we do not use this algorithm.
 
-We actually use the **TextRank** algorithm. The core concept of **TextRank** algorithm is "**voting**" or "**recommending**", mainly including the following steps.
+We actually use the [**TextRank**](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm. The core concept of [**TextRank**](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm is "**voting**" or "**recommending**", mainly including the following steps.
 
-The first step is to add the determined keyword as a vertex to the graph according to the lexical unit, and then connect the vertex according to the **relationship** between the two words. The importance of the vertex determines the importance of the edge connected with the vertex, and then perform iterative calculation. Finally, rank the vertices according to the vertex score to obtain the ranking of keywords. Below is the keyword obtained by TextRank in the same article:  
+The first step is to add the determined keyword as a vertex to the graph according to the lexical unit, and then connect the vertex according to the **relationship** between the two words. The importance of the vertex determines the importance of the edge connected with the vertex, and then perform iterative calculation. Finally, rank the vertices according to the vertex score to obtain the ranking of keywords. Below is the keyword obtained by [TextRank](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) in the same article:  
 <div align=center><img src="./images/算法3.png"></div>   
-###### <u>In this project, 26 tweets asking for Jinshan were used, and the time range was September to December</u>
+> In this project, **26 tweets** asking for Jinshan were used, and the time range was September to December
 
 However, there is a problem with the above two algorithms that they cannot query **synonyms**. Therefore, we have introduced **cnsyn** to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
 
@@ -48,7 +48,7 @@ However, there is a problem with the above two algorithms that they cannot query
 ----------------
 This **flowchart** below roughly shows the implementation process of the algorithm.  
 <div align=center><img src="./images/结果1.png"></div>   
-First, we need to **preprocess** the article, use **TextRank** algorithm to extract the key words of the article and record them.
+First, we need to **preprocess** the article, use [**TextRank**](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm to extract the key words of the article and record them.
 We have implemented two searching methods in the project, namely, search for **article keywords** and search for **full-text content**.
 
 In the keyword searching method, the keyword entered by the user can be used as the **substring** of the article keyword (for example, the user enters "*核酸*", and the program search contains "*做核酸*") or the **synonym** (for example, the relationship between "*抗疫*" and "*防控疫情*"), and from the perspective of relevance, the former will have higher priority in ranking than the latter.
@@ -73,8 +73,10 @@ while this figure below shows the keywords retrieved by the algorithm and ranked
 <div align=center><img src="./images/分析2.png"></div>   
 We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of 6 keywords that are in line with each other, which  is indicated by the red bar chart on the right. In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
 
-At the same time, we found that the highest keyword accuracy obtained by the TextRank algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm. Moreover, since most of the valid keywords are concentrated in the first 10, we can increase the precision by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
+At the same time, we found that the highest keyword accuracy obtained by the [TextRank](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm. Moreover, since most of the valid keywords are concentrated in the first 10, we can increase the precision by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
 
 In terms of the efficiency of the algorithm, we found that the time for each keyword search was more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to cross-reference the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms. Furthermore, the search for synonyms requires access to multiple web resources, so the overall efficiency is much lower.
 
 For this, our proposed solution is to build a local thesaurus and put in advance the synonyms of all article keywords, as well as the synonyms.
+
+[Source Code](https://github.com/changyang21/stat3060-website/blob/main/main.py)
