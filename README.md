@@ -4,14 +4,12 @@
 --------------------------------
 ## Background
 --------------------------------
-"**Wen Xu Jin Shan**" is a subsciption serving residents of Jinshan community in Fuzhou. It can help people learn about epidemic prevention policies, nucleic acid sites and other important information by pushing articles:  
-<div align=center><img src="images/政策宣传.png"/></div>   
-![政策宣传](images/政策宣传.png)  
-Providing benefits such as free fruit and medicine:  
-![福利放送](images/福利放送.png)  
-<img src="images/福利放送.png" alt="福利放送" align=center />   
-At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:   
-![你呼我应](images/你呼我应.jpeg)   
+"**Wen Xu Jin Shan**" is a subsciption serving residents of Jinshan community in Fuzhou. It can help people learn about epidemic prevention policies, nucleic acid sites and other important information by pushing articles:   
+<div align=center><img src="images/政策宣传.png"/></div>    
+Providing benefits such as free fruit and medicine:   
+<img src="images/福利放送.png" alt="福利放送" align=center />    
+At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:    
+![你呼我应](images/你呼我应.jpeg)    
 which provides people with convenience.  
 
 However, after our team actually used the official account, we found that there are two functions worth improving inside the official account. First, the information articles in the "convenience service" mini program lack search function, and can only be sorted by time, as shown in the figure:  
