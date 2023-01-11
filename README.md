@@ -6,6 +6,7 @@
 --------------------------------
 "**Wen Xu Jin Shan**" is a subsciption serving residents of Jinshan community in Fuzhou. It can help people learn about epidemic prevention policies, nucleic acid sites and other important information by pushing articles:   
 ![政策宣传](images/政策宣传.png)    
+<div align=center><img src="./images/政策宣传.png"></div>   
 Providing benefits such as free fruit and medicine:   
 ![福利放送](images/福利放送.png)    
 At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:    
