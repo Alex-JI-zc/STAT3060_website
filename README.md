@@ -8,7 +8,8 @@
 ![政策宣传](images/政策宣传.png)  
 <img src="./xxx.png" width = "300" height = "200" alt="图片名称" align=center />  
 Providing benefits such as free fruit and medicine:  
-![福利放送](images/福利放送.png align=center)  
+![福利放送](images/福利放送.png)  
+<img src="福利放送.png" alt="福利放送" align=center />   
 At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:  
 ![你呼我应](images/你呼我应.jpeg)   
 which provides people with convenience.  
