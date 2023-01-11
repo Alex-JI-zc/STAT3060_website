@@ -9,6 +9,7 @@
 <div align=center><img src="./images/政策宣传.png"></div>   
 Providing benefits such as free fruit and medicine:   
 ![福利放送](images/福利放送.png)    
+<div align=center><img src="./images/福利放送.png"></div>   
 At the same time, it also has a "**Ni Hu Wo Ying**" platform to understand people's situation and solve people's difficulties:    
 ![你呼我应](images/你呼我应.jpeg)    
 which provides people with convenience.  
