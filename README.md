@@ -1,32 +1,63 @@
 # A Keyword-Extraction-Algorithm Based Searching Method for Subscription Articles
-Cheng Zheng， Jinhua Sun， Yuliang Zhang， Yejia Liu  
+Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu 
 
 2023/1/11
 
---------------------------------
+
+---------------------------
+
+
 ## Background
---------------------------------
-"**问需金山**" is a subsciption serving residents of Jinshan community in Fuzhou. It can help people learn about epidemic prevention policies, nucleic acid sites and other important information by pushing articles:  
-<div align=center><img src="images/政策宣传.png"/></div>   
-Providing benefits such as free fruit and medicine:  
-<img src="images/福利放送.png" alt="福利放送" align=center />   
-At the same time, it also has a "**你呼我应**" platform to understand people's situation and solve people's difficulties:  
-![你呼我应](images/你呼我应.jpeg)   
-which provides people with convenience.  
 
-However, after our team actually used the official account, we found that there are two functions worth improving inside the official account. First, the information articles in the "convenience service" mini program lack search function, and can only be sorted by time, as shown in the figure:  
-![痛点1](images/痛点1.png)  
-It is not easy for people to look up important articles in the past. At the same time, the problem may become more prominent in the future as the number of articles increases.
+### Intro to 问需金山
 
-Secondly, the function of "follow automatic reply" provided by the chat interface of the official account is not perfect. At present, users can only get corresponding tweets by inputting the two keywords of community and nucleic acid:  
-![痛点2.1](images/痛点2.1.jpeg)  
-while other keywords can only get fixed replies as shown in the figure.  
-![痛点2.2](images/痛点2.2.jpeg)  
-It was found that many of the keywords people entered in the chat box did not get the desired tweets:  
-![痛点2.3](images/痛点2.3.png)  
-which also shows that the user support for this feature is actually very high.
+"**问需金山**" is a subsciption serving residents of **Jinshan community** in Fuzhou. It has the following functions:
 
-Based on this, our team determined our project objectives. On the one hand, it is to realize the search function of information articles in the "convenience service", on the other hand, it is to realize the expansion of the keyword database of "Pay attention to automatic reply", both of which require us to achieve **automatic keyword extraction**, which is the core of our whole project.
++ It can help people learn about epidemic prevention policies, nucleic acid sites and other important information by pushing articles:
+
++ Providing benefits such as free fruit and medicine
++ A **你呼我应** platform to understand people's situation and solve people's difficulties which provides people with convenience.
+
+### Problem
+
+However, after our team actually used the official account, we found that there are two functions worth improving inside the official account.
+
++ First, the information articles in the 便民服务 module lack search function, and can only be sorted by time, as shown in the figure. It is not easy for people to look up important articles in the past.
+
+<img src="./these.images/image-20230111171901807.png" alt="image-20230111171901807" style="zoom:20%;" />
+
++ At the same time, the problem may become more prominent in the future as the number of articles increases.
++ Secondly, the function of follow automatic reply provided by the chat interface of the official account is not perfect. 
+	+ At present, users can only get corresponding tweets by inputting the two keywords of community and nucleic acid
+
+<img src="./these.images/痛点2.1.JPEG" alt="痛点2.1" style="zoom:20%;" />
+
+It was found that many of the keywords people entered in the chat box did not get the desired tweets:
+
+| Rank | Keyword | Input Times |
+| ---- | ------- | ----------- |
+| 1    | 秒杀    | 608         |
+| 2    | 核酸    | 381         |
+| 3    | 社区    | 194         |
+| 4    | 看病    | 39          |
+| 5    | 金山    | 34          |
+| 6    | 做      | 32          |
+| 7    | 信息    | 31          |
+| 8    | 健康    | 39          |
+| 9    | 你好    | 26          |
+| 10   | 检测    | 26          |
+
+which also shows that the user support for this feature is actually very **high**.
+
+### Motivation
+
+Based on this, our team determine our project objectives. 
+
++ On the one hand, it is to realize the search function of information articles in the "convenience service".
+
++ On the other hand, it is to realize the expansion of the keyword database of "Pay attention to automatic reply".
+
+Both of which require us to achieve **automatic keyword extraction**, which is the core of our whole project.
 
 ## Core Concept Explanation
 
@@ -121,52 +152,126 @@ Also, using the [article](https://mp.weixin.qq.com/s/JqxjRVQxflbb8J-oXM5nFw) men
 
 In our project, we collected **26** tweets from the subscription from 问需金山, and the time range was September to December.
 
-
-
 ### Synonym
 
-Thesaurus
+However, there is a ==**problem**== with the above algorithms, that they cannot query **synonyms**. Actually there are many words exhibiting the **same** meaning in the output keywords. So we need to deal with the synonym problem.
 
-However, there is a problem with the above two algorithms that they cannot query **synonyms**. Therefore, we have introduced [**cnsyn**](https://gitee.com/vencen/Chinese-Synonyms) to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
+<img src="./these.images/WechatIMG72.JPEG" alt="WechatIMG72" style="zoom:33%;" />
 
-## Algorithm Implementation and Results
-----------------
-This **flowchart** below roughly shows the implementation process of the algorithm.  
-![结果1](images/结果1.png)  
-First, we need to **preprocess** the article, use [**TextRank**](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm to extract the key words of the article and record them.
+Therefore, we have introduced [**cnsyn**](https://gitee.com/vencen/Chinese-Synonyms) to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
 
 
 
-We have implemented two searching methods in the project, namely, search for **article keywords** and search for **full-text content**.
+## Algorithm Implementation
 
-In the keyword searching method, the keyword entered by the user can be used as the **substring** of the article keyword (for example, the user enters "*核酸*", and the program search contains "*做核酸*") or the **synonym** (for example, the relationship between "*抗疫*" and "*防控疫情*"), and from the perspective of relevance, the former will have higher priority in ranking than the latter.
+[This](https://github.com/changyang21/stat3060-website/blob/main/main.py) is the whole source code in @github for our project. We use different packages in python to realize different algorithms mentioned before.
 
-In the content search method, the algorithm will traverse all articles and return links to articles containing the words entered by users.
+### Overview
 
-Next showed four search examples. The first is **keyword searching**. After entering *防疫* and *阳* keywords. You can see that 2 and 3 articles containing relevant keywords in the database are returned here.  
-![防疫 阳](images/防疫 阳.png)  
-However, it is noted that the search for keywords here takes 14 seconds, which is a long time and is not feasible in practice. This problem will be analyzed later in the paper.
+This **flowchart** below roughly shows the implementation process of the algorithm.
 
-The second is **full text content searching**. Input the full text of *做核酸* and *水果* to search the whole article, and also return the web links of multiple articles.  
-![做核酸 水果](images/做核酸 水果.png)  
-Finally, we have solved the pain points mentioned at the beginning and realized the **keyword extraction** and **searching** function of the article. For example, this table represents the hot words entered by the user in the chat box of the official account. The algorithm can be introduced to **automatically respond to any keyword**.
+<img src="./these.images/image-20230111162903211.png" alt="image-20230111162903211" style="zoom:15%;" />
 
-## Analysis and Prospect
--------------
-Next, I will explain the analysis of the algorithm and the future directions of improvement.
+And here is the main steps:
 
-First of all, compare the keywords extracted by manual and algorithm. The figure below shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps:  
-![分析1](images/分析1.png)  
-while this figure below shows the keywords retrieved by the algorithm and ranked by the relevance:  
-![分析2](images/分析2.png)  
-We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of 6 keywords that are in line with each other, which  is indicated by the red bar chart on the right. In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
++ We need to **preproces** the article first, to use TextRank algorithm to extract keywords of 26 articles and record them in the data structure.
 
-At the same time, we found that the highest keyword accuracy obtained by the [TextRank](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm. Moreover, since most of the valid keywords are concentrated in the first 10, we can increase the precision by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
++ We want to implement two searching methods in the project, namely, searching for **article keywords** and searcihng for **full-text content**.
 
-In terms of the efficiency of the algorithm, we found that the time for each keyword search was more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to cross-reference the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms. Furthermore, the search for synonyms requires access to multiple web resources, so the overall efficiency is much lower.
+	+ The keywords entered by the user can be used as the **substring** of the article keyword (for example, the user enters *核酸*, and the program search articles containing *做核酸*).
+		+ Also, they can serve as the **synonym** (for example, the relationship between "*抗疫* and *防控疫情*).
+		+ From the perspective of **relevance**, the former will have **==higher priority==** in ranking than the latter.
 
-For this, our proposed solution is to build a local thesaurus and put in advance the synonyms of all article keywords, as well as the synonyms.
+	+ In the content searching method, the algorithm will simply **traverse** all articles and return links to articles containing the words entered by users.
+
+### Results
+
+Here, we present our result for the project.
+
+#### Keyword Searching
+
+The first is **keyword searching**. After entering *防疫* and *阳*, you can see that 2 and 3 articles containing relevant keywords in the database are returned here.
+
+<img src="./these.images/image-20230111164335387.png" alt="image-20230111164335387" style="zoom:100%;" />
+
+However, note that the search for keywords here takes **==14 seconds==**, which is a long time and is not feasible in practice. This problem will be analyzed later in the paper.
+
+#### Full-Text Content Searching
+
+The second is **full text content searching**. Input the full text of *做核酸* and *水果* to search the whole article. The program will return those web links for the articles.
+
+<img src="./these.images/image-20230111164523666.png" alt="image-20230111164523666" style="zoom:100%;" />
+
+#### Problem Solved
+
+Finally, we have solved the pain points mentioned at the beginning of the report and realize **keyword extraction** and **searching** function in the python program.
+
+For example, this table represents the hot words entered by the user in the chat box of the official account. 
+
+| Rank | Keyword | Input Times |
+| ---- | ------- | ----------- |
+| 1    | 秒杀    | 608         |
+| 2    | 核酸    | 381         |
+| 3    | 社区    | 194         |
+| 4    | 看病    | 39          |
+| 5    | 金山    | 34          |
+| 6    | 做      | 32          |
+| 7    | 信息    | 31          |
+| 8    | 健康    | 39          |
+| 9    | 你好    | 26          |
+| 10   | 检测    | 26          |
+
+The algorithm can be introduced to **automatically respond** to **==any keyword==**.
 
 
 
-[Source Code](https://github.com/changyang21/stat3060-website/blob/main/main.py)
+## Analysis
+In this part, we will analyze the algorithm performance in detail.
+
+### Keyword Extraction Precision
+
+Namely, human extraction keywords will serve as a **standard answer** for testing our algorithm (Even though this is a fairly **subjective** answer). The formula will be listed below
+$$
+\eta = \frac{\#\text{ of correct words}}{\#\text{ of all words}}\times 100\%
+$$
+Compare the keywords extracted by manpower and algorithm. Note that we four group members extract four sets of keywords and then we take intersection of our keyword sets.
+
+The figure below shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps:
+
+<img src="./these.images/image-20230111165721064.png" alt="image-20230111165721064" style="zoom:40%;" />
+
+while this figure below shows the keywords retrieved by the **algorithm** and ranked by the relevance:
+
+<img src="./these.images/image-20230111165835777.png" alt="image-20230111165835777" style="zoom:50%;" />
+
+We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of **6 keywords** that are in line with each other, which is indicated by the red bar chart on the right.
+
+In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
+$$
+\eta = \frac{6}{20}\times100\% = 30\%
+$$
+At the same time, we found that the highest keyword accuracy obtained by the TextRank algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm.
+
+<img src="./these.images/image-20230111170442240.png" alt="image-20230111170442240" style="zoom:25%;" />
+
+Moreover, since most of the valid keywords are concentrated in the first 10, we can further ==**increase the precision**== by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
+
+### Efficiency for Keyword Searching
+
+In terms of the efficiency of the algorithm, we found that the time for each keyword searching is more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to **==cross-reference==** the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms.
+
+<img src="./these.images/image-20230111170609160.png" alt="image-20230111170609160" style="zoom:40%;" />
+
+Furthermore, the search for synonyms requires access to multiple **web resources**, so the overall efficiency is even lower.
+
+For this, our proposed solution is to build a **local thesaurus** and put in advance the synonyms of all article keywords, as well as the synonyms, just like the memory structure of the computer, which put things that may be used into the main memory and cache in advance to increase efficiency.
+
+<img src="./these.images/image-20230111171002169.png" alt="image-20230111171002169" style="zoom:40%;" />
+
+## Reference
+
+
+
+## Related Materials
+
+This is our [Source Code](https://github.com/changyang21/stat3060-website/blob/main/main.py) of the whole program. You can refer to it.
