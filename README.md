@@ -24,13 +24,13 @@ However, after our team actually used the official account, we found that there 
 
 + First, the information articles in the 便民服务 module lack search function, and can only be sorted by time, as shown in the figure. It is not easy for people to look up important articles in the past.
 
-<div align="center"><img src="./these.images/image-20230111171901807.png" alt="image-20230111171901807" style="zoom:20%;" /></div>  
+<div align=center><img src="./these.images/image-20230111171901807.png" alt="image-20230111171901807" style="zoom:20%;" /></div>  
 
 + At the same time, the problem may become more prominent in the future as the number of articles increases.
 + Secondly, the function of follow automatic reply provided by the chat interface of the official account is not perfect. 
 	+ At present, users can only get corresponding tweets by inputting the two keywords of community and nucleic acid
 
-<div align="center"><img src="./these.images/痛点2.1.JPEG" alt="痛点2.1" style="zoom:20%;" /></div>  
+<div align=center><img src="./these.images/痛点2.1.JPEG" alt="痛点2.1" style="zoom:20%;" /></div>  
 
 It was found that many of the keywords people entered in the chat box did not get the desired tweets:
 
@@ -67,7 +67,7 @@ This part will be an explanation for all the concepts used in this project.
 
 Keyphrase Extraction (KPE, or Keyword Extraction) can automatically extract phrases from an article and can summarize the core content in the document, which is beneficial to downstream information retrieval and other tasks. Keyword extraction uses machine learning, artificial intelligence (AI) with natural language processing (NLP) and there are mainly two methods for keyword extraction, **supervised** and **unsupervised** learning methods.
 
-<div align="center"><img src="./these.images/image-20230111152432933.png" alt="image-20230111152432933" style="zoom:30%;" /></div>  
+<div align=center><img src="./these.images/image-20230111152432933.png" alt="image-20230111152432933" style="zoom:30%;" /></div>  
 
 For **unsupervised learning** like TF-IDF, TextRank and LDA, they mainly focus on statistical information of the article, while for **supervised learning** such as SVM, K-means, and Naive Bayes, labeling and supervising play a more important role.
 
@@ -85,7 +85,7 @@ while $d$ means a single document and $D$ means document corpus. For the weight 
 
 In python coding, we import `jieba` package and implement the algorithm easily. In order to see the result of the algorithm, we use [this](https://mp.weixin.qq.com/s/JqxjRVQxflbb8J-oXM5nFw) article as a testcase to demonstrate the idea of the algorithm, and below is our test results. Notice that there is a *weight* colume on the right, which indicates the **probability** of each word to become a keyword in the article.
 
-<div align="center"><img src="./these.images/算法1.png" alt="算法1" style="zoom:33%;" /></div>  
+<div align=center><img src="./these.images/算法1.png" alt="算法1" style="zoom:33%;" /></div>  
 
 | Keyword | weight              |
 | ------- | ------------------- |
@@ -115,7 +115,7 @@ However, there is a main **problem**: the corpus used in the inverse document fr
 
 We actually use the [**TextRank**](https://www.researchgate.net/publication/200042361_TextRank_Bringing_Order_into_Text) algorithm. It is based on [graph theory](https://www.geeksforgeeks.org/mathematics-graph-theory-basics-set-1/). Graphs contain **vertices** and **edges**, which represent **lexical units** and **relationships** between different words in an article. Below is an example graph of words and their relationships.
 
-<div align="center"><img src="./these.images/image-20230111160828029.png" alt="image-20230111160828029" style="zoom:20%;" /></div>  
+<div align=center><img src="./these.images/image-20230111160828029.png" alt="image-20230111160828029" style="zoom:20%;" /></div>  
 
 The core concept of **TextRank** algorithm is "**voting**" or "**recommending**". **==Notice==** that the importance of the vertex determines the importance of the edge connected to the vertex. Here is a brief explanation for TextRank algorithms.
 $$
@@ -156,7 +156,7 @@ In our project, we collected **26** tweets from the subscription from 问需金�
 
 However, there is a ==**problem**== with the above algorithms, that they cannot query **synonyms**. Actually there are many words exhibiting the **same** meaning in the output keywords. So we need to deal with the synonym problem.
 
-<div align="center"><img src="./these.images/WechatIMG72.JPEG" alt="WechatIMG72" style="zoom:33%;" /></div>  
+<div align=center><img src="./these.images/WechatIMG72.JPEG" alt="WechatIMG72" style="zoom:33%;" /></div>  
 
 Therefore, we have introduced [**cnsyn**](https://gitee.com/vencen/Chinese-Synonyms) to build synonym thesaurus using **Wikipedia** and **Chinese synonym dictionary**. When the user enters the query word, search the synonym of the word in the inverted index according to the word, and return the synonym of the input word.
 
@@ -170,7 +170,7 @@ Therefore, we have introduced [**cnsyn**](https://gitee.com/vencen/Chinese-Synon
 
 This **flowchart** below roughly shows the implementation process of the algorithm.
 
-<div align="center"><img src="./these.images/image-20230111162903211.png" alt="image-20230111162903211" style="zoom:15%;" /></div>  
+<div align=center><img src="./these.images/image-20230111162903211.png" alt="image-20230111162903211" style="zoom:15%;" /></div>  
 
 And here is the main steps:
 
@@ -192,7 +192,7 @@ Here, we present our result for the project.
 
 The first is **keyword searching**. After entering *防疫* and *阳*, you can see that 2 and 3 articles containing relevant keywords in the database are returned here.
 
-<div align="center"><img src="./these.images/image-20230111164335387.png" alt="image-20230111164335387" style="zoom:100%;" /></div>  
+<div align=center><img src="./these.images/image-20230111164335387.png" alt="image-20230111164335387" style="zoom:100%;" /></div>  
 
 However, note that the search for keywords here takes **==14 seconds==**, which is a long time and is not feasible in practice. This problem will be analyzed later in the paper.
 
@@ -200,7 +200,7 @@ However, note that the search for keywords here takes **==14 seconds==**, which 
 
 The second is **full text content searching**. Input the full text of *做核酸* and *水果* to search the whole article. The program will return those web links for the articles.
 
-<div align="center"><img src="./these.images/image-20230111164523666.png" alt="image-20230111164523666" style="zoom:100%;" /></div>  
+<div align=center><img src="./these.images/image-20230111164523666.png" alt="image-20230111164523666" style="zoom:100%;" /></div>  
 
 #### Problem Solved
 
@@ -238,11 +238,11 @@ Compare the keywords extracted by manpower and algorithm. Note that we four grou
 
 The figure below shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps:
 
-<div align="center"><img src="./these.images/image-20230111165721064.png" alt="image-20230111165721064" style="zoom:40%;" /></div>  
+<div align=center><img src="./these.images/image-20230111165721064.png" alt="image-20230111165721064" style="zoom:40%;" /></div>  
 
 while this figure below shows the keywords retrieved by the **algorithm** and ranked by the relevance:
 
-<div align="center"><img src="./these.images/image-20230111165835777.png" alt="image-20230111165835777" style="zoom:50%;" /></div>  
+<div align=center><img src="./these.images/image-20230111165835777.png" alt="image-20230111165835777" style="zoom:50%;" /></div>  
 
 We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of **6 keywords** that are in line with each other, which is indicated by the red bar chart on the right.
 
@@ -252,7 +252,7 @@ $$
 $$
 At the same time, we found that the highest keyword accuracy obtained by the TextRank algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm.
 
-<div align="center"><img src="./these.images/image-20230111170442240.png" alt="image-20230111170442240" style="zoom:25%;" /></div>  
+<div align=center><img src="./these.images/image-20230111170442240.png" alt="image-20230111170442240" style="zoom:25%;" /></div>  
 
 Moreover, since most of the valid keywords are concentrated in the first 10, we can further ==**increase the precision**== by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
 
@@ -260,13 +260,13 @@ Moreover, since most of the valid keywords are concentrated in the first 10, we 
 
 In terms of the efficiency of the algorithm, we found that the time for each keyword searching is more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to **==cross-reference==** the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms.
 
-<div align="center"><img src="./these.images/image-20230111170609160.png" alt="image-20230111170609160" style="zoom:40%;" /></div>  
+<div align=center><img src="./these.images/image-20230111170609160.png" alt="image-20230111170609160" style="zoom:40%;" /></div>  
 
 Furthermore, the search for synonyms requires access to multiple **web resources**, so the overall efficiency is even lower.
 
 For this, our proposed solution is to build a **local thesaurus** and put in advance the synonyms of all article keywords, as well as the synonyms, just like the memory structure of the computer, which put things that may be used into the main memory and cache in advance to increase efficiency.
 
-<div align="center"><img src="./these.images/image-20230111171002169.png" alt="image-20230111171002169" style="zoom:40%;" /></div>  
+<div align=center><img src="./these.images/image-20230111171002169.png" alt="image-20230111171002169" style="zoom:40%;" /></div>  
 
 ## Reference
 
