@@ -6,6 +6,17 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 
 ---------------------------
 
+Table of contents
+=================
+
+<!--ts-->
+- [Table of contents](#table-of-contents)
+- [Background](#background)
+- [Algorithm Implementation](#algorithm-implementation)
+- [Analysis](#analysis)
+- [Reference](#reference)
+- [Related Materials](#related-materials)
+<!--te-->
 
 ## Background
 
