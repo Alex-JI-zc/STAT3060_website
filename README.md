@@ -12,7 +12,7 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 <!--ts-->
 - [Table of contents](#table-of-contents)
 - [Background](#background)
-  - [Intro to 问需金山](#Intro to 问需金山)
+  - [Intro to 问需金山](#Intro-to-问需金山)
 - [Algorithm Implementation](#algorithm-implementation)
 - [Analysis](#analysis)
 - [Reference](#reference)
