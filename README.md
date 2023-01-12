@@ -20,9 +20,9 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
   - [TF-IDF](#TF-IDF)
   - [TextRank](#TextRank)
   - [Synonym](#Synonym) 
-- [Algorithm Implementation](#Algorithm-Implementation)
-  - [Overview](#Overview)
-  - [Results](#Results)
+- [Results](#Results)
+  - [Algorithm Overview](#Algorithm-Overview)
+  - [Program Results](#Program-Results)
     - [Keyword Searching](#Keyword-Searching)
     - [Full-Text Content Searching](#Full-Text-Content-Searching)
     - [Problem Solved](#Problem-Solved)
@@ -186,11 +186,11 @@ Therefore, we have introduced [**cnsyn**](https://gitee.com/vencen/Chinese-Synon
 
 
 
-## Algorithm Implementation
+## Result
 
 [This](https://github.com/changyang21/stat3060-website/blob/main/main.py) is the whole source code in @github for our project. We use different packages in python to realize different algorithms mentioned before.
 
-### Overview
+### Algorithm Overview
 
 This **flowchart** below roughly shows the implementation process of the algorithm.
 
@@ -208,7 +208,7 @@ And here is the main steps:
 
 	+ In the content searching method, the algorithm will simply **traverse** all articles and return links to articles containing the words entered by users.
 
-### Results
+### Program Results
 
 Here, we present our result for the project.
 
