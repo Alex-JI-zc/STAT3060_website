@@ -59,7 +59,7 @@ Based on this, our team determine our project objectives.
 
 Both of which require us to achieve **automatic keyword extraction**, which is the core of our whole project.
 
-## Core Concept Explanation
+## Core Method Explanation
 
 This part will be an explanation for all the concepts used in this project.
 
@@ -221,7 +221,7 @@ The algorithm can be introduced to **automatically respond** to **==any keyword=
 
 
 
-## Analysis
+## Analysis and Discussion
 In this part, we will analyze the algorithm performance in detail.
 
 ### Keyword Extraction Precision
