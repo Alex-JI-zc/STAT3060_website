@@ -78,7 +78,7 @@ In our project, we use [**TextRank**](https://www.researchgate.net/publication/2
 #### TF-IDF
 
 The first keyword extraction algorithm is [**TF-IDF**](https://www.researchgate.net/publication/228818851_Using_TF-IDF_to_determine_word_relevance_in_document_queries). Through **Term Frequency** and **Inverse Document Frequency**, we can infer which words may be the key words of the article. The general equation for TF-IDF is  
-$$w_d=f_{w, d} \times \log \left(\frac{|D|}{f_{w, D}}\right)$$  
+<div align=center><img src="./these.images/公式1.png" alt="公式1" style="zoom:100%;" /></div>  
 while d means a single document and D means document corpus. For the weight w of each word, it not only considers the word frequency in the **current** document, but also considers the word frequency in the **whole** corpus. Therefore, words such as **articles** and **pronouns** can be screened out from the list of key words
 
 In python coding, we import `jieba` package and implement the algorithm easily. In order to see the result of the algorithm, we use [this](https://mp.weixin.qq.com/s/JqxjRVQxflbb8J-oXM5nFw) article as a testcase to demonstrate the idea of the algorithm, and below is our test results. Notice that there is a *weight* colume on the right, which indicates the **probability** of each word to become a keyword in the article.
@@ -115,8 +115,8 @@ We actually use the [**TextRank**](https://www.researchgate.net/publication/2000
 
 <div align=center><img src="./these.images/image-20230111160828029.png" alt="image-20230111160828029" style="zoom:20%;" /></div>  
 
-The core concept of **TextRank** algorithm is "**voting**" or "**recommending**". **Notice** that the importance of the vertex determines the importance of the edge connected to the vertex. Here is a brief explanation for TextRank algorithms.
-![](http://latex.codecogs.com/gif.latex?\\S\left(V_i\right)=(1-d)+d \times \sum_{j \in \ln \left(V_i\right)} \frac{1}{\left|O u t\left(V_j\right)\right|} S\left(V_j\right)}})
+The core concept of **TextRank** algorithm is "**voting**" or "**recommending**". **Notice** that the importance of the vertex determines the importance of the edge connected to the vertex. Here is a brief explanation for TextRank algorithms.  
+<div align=center><img src="./these.images/算法2.png" alt="算法2" style="zoom:100%;" /></div>  
 We use relationship between connected vertices and calculate them iteratively with a set of initial values assigned to each vertex. Also note that the initial value does not influence the ultimate result of the algorithm.
 
 TextRank mainly including the following steps.
@@ -226,8 +226,8 @@ In this part, we will analyze the algorithm performance in detail.
 
 ### Keyword Extraction Precision
 
-Namely, human extraction keywords will serve as a **standard answer** for testing our algorithm (Even though this is a fairly **subjective** answer). The formula will be listed below
-![](http://latex.codecogs.com/gif.latex?\\\eta = \frac{\#\text{ of correct words}}{\#\text{ of all words}}\times 100\%}})
+Namely, human extraction keywords will serve as a **standard answer** for testing our algorithm (Even though this is a fairly **subjective** answer). The formula will be listed below  
+<div align=center><img src="./these.images/算法3.png" alt="算法3" style="zoom:100%;" /></div>  
 Compare the keywords extracted by manpower and algorithm. Note that we four group members extract four sets of keywords and then we take intersection of our keyword sets.
 
 The figure below shows the keywords extracted by our four members for a subscription article and ranked in descending order by the number of overlaps:
@@ -240,10 +240,8 @@ while this figure below shows the keywords retrieved by the **algorithm** and ra
 
 We filtered the keywords given by the algorithm with the manually selected keywords as the criteria. Then, we can find a total of **6 keywords** that are in line with each other, which is indicated by the red bar chart on the right.
 
-In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.
-$$
-\eta = \frac{6}{20}\times100\% = 30\%
-$$
+In fact, the algorithm gave a total of 20 keywords, because the latter ones did not overlap and had low relevance, they were not placed in the chart. After a rough calculation, we can conclude that this algorithm has an accuracy of 30%.  
+<div align=center><img src="./these.images/算法4.png" alt="算法4" style="zoom:100%;" /></div>  
 At the same time, we found that the highest keyword accuracy obtained by the TextRank algorithm was 31.2% by searching the relevant literature, which is close to the result of 30% obtained by our algorithm.
 
 <div align=center><img src="./these.images/image-20230111170442240.png" alt="image-20230111170442240" style="zoom:25%;" /></div>  
