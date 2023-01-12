@@ -27,8 +27,8 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
     - [Full-Text Content Searching](#Full-Text-Content-Searching)
     - [Problem Solved](#Problem-Solved)
 - [Analysis](#Analysis)
-  -[Keyword Extraction Precision](#Keyword-Extraction-Precision)
-  -[Efficiency for Keyword Searching](#Efficiency-for-Keyword-Searching)
+  - [Keyword Extraction Precision](#Keyword-Extraction-Precision)
+  - [Efficiency for Keyword Searching](#Efficiency-for-Keyword-Searching)
 - [Reference](#Reference)
 - [Related Materials](#Related-Materials)
 <!--te-->
