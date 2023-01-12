@@ -264,6 +264,10 @@ For this, our proposed solution is to build a **local thesaurus** and put in adv
 
 ## Reference
 
+[1] Ramos, Juan. (2003). Using TF-IDF to determine word relevance in document queries.
+[2] Mihalcea, Rada & Tarau, Paul. (2004). TextRank: Bringing Order into Text..
+[3] [Chinese Synonyms 中文同义词查询工具包 Chinese Synonyms for Natural Language Processing and Understanding.](https://gitee.com/vencen/Chinese-Synonyms)
+
 
 
 ## Related Materials
