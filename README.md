@@ -10,13 +10,27 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 --------------------
 
 <!--ts-->
-- [Table of contents](#table-of-contents)
-- [Background](#background)
+- [Table of Contents](#Table-of-Contents)
+- [Background](#Background)
   - [Intro to 问需金山](#Intro-to-问需金山)
-- [Algorithm Implementation](#algorithm-implementation)
-- [Analysis](#analysis)
-- [Reference](#reference)
-- [Related Materials](#related-materials)
+  - [Problem](#Problem)
+  - [Motivation](#Motivation)
+- [Core Concept Explanation](#Core-Concept-Explanation)
+  - [Supervised Algorithm](#Supervised-Algorithm)
+  - [TF-IDF](#TF-IDF)
+  - [TextRank](#TextRank)
+  - [Synonym](#Synonym) 
+- [Algorithm Implementation](#Algorithm-Implementation)
+  - [Overview](#Overview)
+  - [Result](#Result)
+   - [Keyword Searching](#Keyword-Searching)
+   - [Full-Text Content Searching](#Full-Text-Content-Searching)
+   - [Problem Solved](#Problem-Solved)
+- [Analysis](#Analysis)
+  -[Keyword Extraction Precision](#Keyword-Extraction-Precision)
+  -[Efficiency for Keyword Searching](#Efficiency-for-Keyword-Searching)
+- [Reference](#Reference)
+- [Related Materials](#Related-Materials)
 <!--te-->
 
 ## Background
@@ -75,7 +89,7 @@ Both of which require us to achieve **automatic keyword extraction**, which is t
 
 This part will be an explanation for all the concepts used in this project.
 
-### Supervised algorithm
+### Supervised Algorithm
 
 Keyphrase Extraction (KPE, or Keyword Extraction) can automatically extract phrases from an article and can summarize the core content in the document, which is beneficial to downstream information retrieval and other tasks. Keyword extraction uses machine learning, artificial intelligence (AI) with natural language processing (NLP) and there are mainly two methods for keyword extraction, **supervised** and **unsupervised** learning methods.
 
