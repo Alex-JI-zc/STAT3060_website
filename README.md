@@ -272,4 +272,8 @@ For this, our proposed solution is to build a **local thesaurus** and put in adv
 
 ## Related Materials
 
-This is our [Source Code](https://github.com/changyang21/stat3060-website/blob/main/main.py) of the whole program. You can refer to it.
+This is our [Source Code](https://github.com/changyang21/stat3060-website/blob/main/main.py) and [Slides](https://www.kdocs.cn/l/cav3jlHlzYWw?from=docs) of the whole program. You can refer to it and contact us.
+Cheng Zheng alex_zc@sjtu.edu.cn
+Jinhua Sun dt8281_x-.15@sjtu.edu.cn
+Yuliang Zhang blu_26@sjtu.edu.cn
+Yejia Liu wendyliuyejia@sjtu.edu.cn
