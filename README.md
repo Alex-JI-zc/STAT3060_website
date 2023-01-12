@@ -35,8 +35,6 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 
 
 
-[TOC]
-
 ## Introduction
 
 ### Background of 问需金山
