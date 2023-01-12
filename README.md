@@ -59,7 +59,7 @@ Based on this, our team determine our project objectives.
 
 Both of which require us to achieve **automatic keyword extraction**, which is the core of our whole project.
 
-## Core Method Explanation
+## Core Concept Explanation
 
 This part will be an explanation for all the concepts used in this project.
 
@@ -115,7 +115,7 @@ We actually use the [**TextRank**](https://www.researchgate.net/publication/2000
 
 <div align=center><img src="./these.images/image-20230111160828029.png" alt="image-20230111160828029" style="zoom:20%;" /></div>  
 
-The core concept of **TextRank** algorithm is "**voting**" or "**recommending**". **==Notice==** that the importance of the vertex determines the importance of the edge connected to the vertex. Here is a brief explanation for TextRank algorithms.
+The core concept of **TextRank** algorithm is "**voting**" or "**recommending**". **Notice** that the importance of the vertex determines the importance of the edge connected to the vertex. Here is a brief explanation for TextRank algorithms.
 ![](http://latex.codecogs.com/gif.latex?\\S\left(V_i\right)=(1-d)+d \times \sum_{j \in \ln \left(V_i\right)} \frac{1}{\left|O u t\left(V_j\right)\right|} S\left(V_j\right)}})
 We use relationship between connected vertices and calculate them iteratively with a set of initial values assigned to each vertex. Also note that the initial value does not influence the ultimate result of the algorithm.
 
@@ -150,7 +150,7 @@ In our project, we collected **26** tweets from the subscription from 问需金�
 
 ### Synonym
 
-However, there is a ==**problem**== with the above algorithms, that they cannot query **synonyms**. Actually there are many words exhibiting the **same** meaning in the output keywords. So we need to deal with the synonym problem.
+However, there is a **problem** with the above algorithms, that they cannot query **synonyms**. Actually there are many words exhibiting the **same** meaning in the output keywords. So we need to deal with the synonym problem.
 
 <div align=center><img src="./these.images/WechatIMG72.JPEG" alt="WechatIMG72" style="zoom:33%;" /></div>  
 
@@ -176,7 +176,7 @@ And here is the main steps:
 
 	+ The keywords entered by the user can be used as the **substring** of the article keyword (for example, the user enters *核酸*, and the program search articles containing *做核酸*).
 		+ Also, they can serve as the **synonym** (for example, the relationship between "*抗疫* and *防控疫情*).
-		+ From the perspective of **relevance**, the former will have **==higher priority==** in ranking than the latter.
+		+ From the perspective of **relevance**, the former will have **higher priority** in ranking than the latter.
 
 	+ In the content searching method, the algorithm will simply **traverse** all articles and return links to articles containing the words entered by users.
 
@@ -190,7 +190,7 @@ The first is **keyword searching**. After entering *防疫* and *阳*, you can s
 
 <div align=center><img src="./these.images/image-20230111164335387.png" alt="image-20230111164335387" style="zoom:100%;" /></div>  
 
-However, note that the search for keywords here takes **==14 seconds==**, which is a long time and is not feasible in practice. This problem will be analyzed later in the paper.
+However, note that the search for keywords here takes **14 seconds**, which is a long time and is not feasible in practice. This problem will be analyzed later in the paper.
 
 #### Full-Text Content Searching
 
@@ -217,11 +217,11 @@ For example, this table represents the hot words entered by the user in the chat
 | 9    | 你好    | 26          |
 | 10   | 检测    | 26          |
 
-The algorithm can be introduced to **automatically respond** to **==any keyword==**.
+The algorithm can be introduced to **automatically respond** to **any keyword**.
 
 
 
-## Analysis and Discussion
+## Analysis
 In this part, we will analyze the algorithm performance in detail.
 
 ### Keyword Extraction Precision
@@ -248,11 +248,11 @@ At the same time, we found that the highest keyword accuracy obtained by the Tex
 
 <div align=center><img src="./these.images/image-20230111170442240.png" alt="image-20230111170442240" style="zoom:25%;" /></div>  
 
-Moreover, since most of the valid keywords are concentrated in the first 10, we can further ==**increase the precision**== by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
+Moreover, since most of the valid keywords are concentrated in the first 10, we can further **increase the precision** by delimiting the **keyword relevance range**, for example, by limiting the relevance to greater than 0.4. Therefore, I think the precision of the algorithm meets the requirement of use.
 
 ### Efficiency for Keyword Searching
 
-In terms of the efficiency of the algorithm, we found that the time for each keyword searching is more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to **==cross-reference==** the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms.
+In terms of the efficiency of the algorithm, we found that the time for each keyword searching is more than 10 seconds. This is because our search for keywords includes **synonym searching**, and the algorithm needs to **cross-reference** the synonyms of the search terms with the synonyms of the extracted keywords, each comparison requiring re-searching for synonyms.
 
 <div align=center><img src="./these.images/image-20230111170609160.png" alt="image-20230111170609160" style="zoom:40%;" /></div>  
 
