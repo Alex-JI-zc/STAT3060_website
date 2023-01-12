@@ -6,7 +6,7 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 
 ---------------------------
 
-## Table of contents
+## Table of Contents
 --------------------
 
 <!--ts-->
