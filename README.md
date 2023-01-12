@@ -77,8 +77,9 @@ In our project, we use [**TextRank**](https://www.researchgate.net/publication/2
 
 #### TF-IDF
 
-The first keyword extraction algorithm is [**TF-IDF**](https://www.researchgate.net/publication/228818851_Using_TF-IDF_to_determine_word_relevance_in_document_queries). Through **Term Frequency** and **Inverse Document Frequency**, we can infer which words may be the key words of the article. The general equation for TF-IDF is
-![](http://latex.codecogs.com/gif.latex?\\$w_d=f_{w, d} \times \log \left(\frac{|D|}{f_{w, D}}\right)$}})
+The first keyword extraction algorithm is [**TF-IDF**](https://www.researchgate.net/publication/228818851_Using_TF-IDF_to_determine_word_relevance_in_document_queries). Through **Term Frequency** and **Inverse Document Frequency**, we can infer which words may be the key words of the article. The general equation for TF-IDF is  
+$w_d=f_{w, d} \times \log \left(\frac{|D|}{f_{w, D}}\right)$  
+![](http://latex.codecogs.com/gif.latex?\\$w_d=f_{w, d} \times \log \left(\frac{|D|}{f_{w, D}}\right)$}})  
 while d means a single document and D means document corpus. For the weight w of each word, it not only considers the word frequency in the **current** document, but also considers the word frequency in the **whole** corpus. Therefore, words such as **articles** and **pronouns** can be screened out from the list of key words
 
 In python coding, we import `jieba` package and implement the algorithm easily. In order to see the result of the algorithm, we use [this](https://mp.weixin.qq.com/s/JqxjRVQxflbb8J-oXM5nFw) article as a testcase to demonstrate the idea of the algorithm, and below is our test results. Notice that there is a *weight* colume on the right, which indicates the **probability** of each word to become a keyword in the article.
