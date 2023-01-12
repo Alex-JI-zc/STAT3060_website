@@ -11,11 +11,11 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
 
 <!--ts-->
 - [Table of Contents](#Table-of-Contents)
-- [Background](#Background)
-  - [Intro to 问需金山](#Intro-to-问需金山)
+- [Introduction](#Introduction)
+  - [Background of 问需金山](#Background-of-问需金山)
   - [Problem](#Problem)
   - [Motivation](#Motivation)
-- [Core Concept Explanation](#Core-Concept-Explanation)
+- [Core Method](#Core-Method)
   - [Supervised Algorithm](#Supervised-Algorithm)
   - [TF-IDF](#TF-IDF)
   - [TextRank](#TextRank)
@@ -26,16 +26,20 @@ Cheng Zheng, Jinhua Sun, Yuliang Zhang, Yejia Liu
     - [Keyword Searching](#Keyword-Searching)
     - [Full-Text Content Searching](#Full-Text-Content-Searching)
     - [Problem Solved](#Problem-Solved)
-- [Analysis](#Analysis)
+- [Discussion](#Discussion)
   - [Keyword Extraction Precision](#Keyword-Extraction-Precision)
   - [Efficiency for Keyword Searching](#Efficiency-for-Keyword-Searching)
 - [Reference](#Reference)
 - [Related Materials](#Related-Materials)
 <!--te-->
 
-## Background
 
-### Intro to 问需金山
+
+[TOC]
+
+## Introduction
+
+### Background of 问需金山
 
 "**问需金山**" is a subsciption serving residents of **Jinshan community** in Fuzhou. It has the following functions:
 
@@ -85,7 +89,7 @@ Based on this, our team determine our project objectives.
 
 Both of which require us to achieve **automatic keyword extraction**, which is the core of our whole project.
 
-## Core Concept Explanation
+## Core Method
 
 This part will be an explanation for all the concepts used in this project.
 
@@ -247,7 +251,7 @@ The algorithm can be introduced to **automatically respond** to **any keyword**.
 
 
 
-## Analysis
+## Discussion
 In this part, we will analyze the algorithm performance in detail.
 
 ### Keyword Extraction Precision
